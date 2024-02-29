@@ -1,16 +1,18 @@
 class User {
     name: string;
-    constructor(name:string) {
-        this.name = name;
+    age: number;
+
+    constructor()
+    constructor(age: number)
+    constructor(name: string)
+    constructor(nameOrAge?:string | number) {
+        if (typeof nameOrAge === 'string') {
+            this.name = nameOrAge;
+        } else if (typeof nameOrAge === 'number') {
+            this.age = nameOrAge;
+        }
     }
 }
 
 const user = new User('Вася');
-
-class Admin {
-    role: number;
-}
-
-const admin = new Admin();
-admin.role = 1;
-console.log(admin)
+const user1 = new User(22);
